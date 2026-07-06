@@ -20,7 +20,7 @@
   <a href="https://github.com/three-water666/webcode/actions/workflows/release.yml">
     <img alt="release workflow" src="https://img.shields.io/github/actions/workflow/status/three-water666/webcode/release.yml?label=release&color=22c55e">
   </a>
-  <img alt="browser bridge 0.11.1" src="https://img.shields.io/badge/bridge-0.11.1-f97316">
+  <img alt="browser bridge version" src="https://img.shields.io/github/package-json/v/three-water666/webcode?filename=bridge-browser%2Fpackage.json&label=bridge&color=f97316">
   <a href="LICENSE">
     <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-16a34a">
   </a>
