@@ -1,11 +1,15 @@
 <p align="center">
-  <img src="doc/assets/webcode-logo.png" width="172" alt="webcode logo">
+  <img src="doc/assets/webcode-logo.png" width="220" alt="webcode logo">
 </p>
 
 <h1 align="center">webcode</h1>
 
 <p align="center">
-  把 ChatGPT、Gemini、DeepSeek 等网页 AI 接到本地 VS Code，让网页 AI 读写文件、运行命令，并使用 MCP 与 Skills。
+  <strong>为网页 AI 提供本地编码能力。</strong>
+</p>
+
+<p align="center">
+  通过 VS Code 插件与浏览器插件，打破网页 AI 与本地项目之间的边界，使 ChatGPT、Gemini、DeepSeek 等网页 AI 连接到本地 VS Code，获得读写文件、运行命令的能力，还支持 MCP 和 Skills。
 </p>
 
 <p align="center">

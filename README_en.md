@@ -1,11 +1,15 @@
 <p align="center">
-  <img src="doc/assets/webcode-logo.png" width="172" alt="webcode logo">
+  <img src="doc/assets/webcode-logo.png" width="220" alt="webcode logo">
 </p>
 
 <h1 align="center">webcode</h1>
 
 <p align="center">
-  Connect ChatGPT, Gemini, DeepSeek, and other web AI products to local VS Code so they can read and write files, run commands, and use MCP and Skills.
+  <strong>Local coding capabilities for web AI.</strong>
+</p>
+
+<p align="center">
+  Through a VS Code extension and browser extension, webcode breaks the boundary between web AI and local projects, connecting ChatGPT, Gemini, DeepSeek, and other web AI products to local VS Code with file access, command execution, and MCP and Skills support.
 </p>
 
 <p align="center">
