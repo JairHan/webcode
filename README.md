@@ -1,8 +1,28 @@
-# webcode
+<p align="center">
+  <img src="doc/assets/webcode-logo.png" width="172" alt="webcode logo">
+</p>
 
-语言：中文 | [English](README_en.md)
+<h1 align="center">webcode</h1>
 
-webcode 用来把 ChatGPT、Gemini、DeepSeek 等这类网页 AI 接到本地 VS Code 中，支持读、写、编辑本地文件，运行命令，还支持 MCP 和 Skills。
+<p align="center">
+  把 ChatGPT、Gemini、DeepSeek 等网页 AI 接到本地 VS Code，让网页 AI 读写文件、运行命令，并使用 MCP 与 Skills。
+</p>
+
+<p align="center">
+  中文 | <a href="README_en.md">English</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/three-water666/webcode/actions/workflows/release.yml">
+    <img alt="release workflow" src="https://img.shields.io/github/actions/workflow/status/three-water666/webcode/release.yml?label=release&color=22c55e">
+  </a>
+  <img alt="browser bridge 0.11.1" src="https://img.shields.io/badge/bridge-0.11.1-f97316">
+  <a href="LICENSE">
+    <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-16a34a">
+  </a>
+</p>
+
+---
 
 ## 快速开始
 

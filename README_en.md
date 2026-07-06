@@ -1,8 +1,28 @@
-# webcode
+<p align="center">
+  <img src="doc/assets/webcode-logo.png" width="172" alt="webcode logo">
+</p>
 
-Language: English | [中文](README.md)
+<h1 align="center">webcode</h1>
 
-webcode connects ChatGPT, Gemini, DeepSeek, and other web AI products to local VS Code so they can read, write, and edit local files, run commands, and use MCP and Skills.
+<p align="center">
+  Connect ChatGPT, Gemini, DeepSeek, and other web AI products to local VS Code so they can read and write files, run commands, and use MCP and Skills.
+</p>
+
+<p align="center">
+  English | <a href="README.md">中文</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/three-water666/webcode/actions/workflows/release.yml">
+    <img alt="release workflow" src="https://img.shields.io/github/actions/workflow/status/three-water666/webcode/release.yml?label=release&color=22c55e">
+  </a>
+  <img alt="browser bridge 0.11.1" src="https://img.shields.io/badge/bridge-0.11.1-f97316">
+  <a href="LICENSE">
+    <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-16a34a">
+  </a>
+</p>
+
+---
 
 ## Quick Start
 
