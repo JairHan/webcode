@@ -137,7 +137,6 @@ async function openUserProfileKeepaliveBrowser(url: string, browserFamily: Brows
     const isAlreadyRunning = await isBrowserProcessRunning(browserFamily);
     if (isAlreadyRunning) {
         void vscode.window.showWarningMessage(t('user_profile_browser_running', { browser: browserName }));
-        return;
     }
 
     const launchCommands = getUserProfileBrowserLaunchCommands(browserFamily, os.platform());

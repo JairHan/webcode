@@ -87,7 +87,7 @@
                   "isolated-edge"
                 ],
                 "default": "default",
-                "description": "Specific browser for this site (overrides global setting). Use user-profile-chrome or user-profile-edge to launch the normal profile with anti-freeze flags when the target browser is closed. Use isolated-chrome or isolated-edge to launch a dedicated profile with the bridge extension and anti-freeze flags."
+                "description": "Specific browser for this site (overrides global setting). Use user-profile-chrome or user-profile-edge to launch the normal profile and try to apply anti-freeze flags. Use isolated-chrome or isolated-edge to launch a dedicated profile with the bridge extension and anti-freeze flags."
               },
               "selectors": {
                 "type": "object",
