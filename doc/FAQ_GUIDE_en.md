@@ -2,6 +2,16 @@
 
 Language: English | [中文](FAQ_GUIDE.md)
 
+## What do I need before the first launch?
+
+Check these items to avoid common first-launch failures:
+
+- Install [VS Code](https://code.visualstudio.com/) 1.106.1 or later.
+- Open a local project folder or workspace in VS Code, not just a single file.
+- The default browser mode is Edge Isolated Keepalive and does not require manual browser-extension installation; Windows usually includes Edge, while macOS needs [Microsoft Edge](https://www.microsoft.com/edge/download) installed first.
+- On Windows, install [Git for Windows](https://git-scm.com/download/win) and keep Git Bash enabled. If Git Bash is installed in a custom path, point `webcodeGateway.commandShell.path` to `bash.exe`.
+- Have an account for the target web AI product and make sure its site is reachable from your network. The first launch requires signing in once inside the isolated Edge profile.
+
 ## What if `@webcode` or `/webcode` does not trigger on the page?
 
 Make sure there is a space before the trigger word, for example:

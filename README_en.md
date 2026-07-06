@@ -113,7 +113,7 @@ See the [build guide](doc/BUILD_GUIDE_en.md) for repository checkout, dependency
 
 ## FAQ
 
-See the [FAQ guide](doc/FAQ_GUIDE_en.md) for trigger-word issues, tool calls that executed but did not update the page, and tool-call history logs.
+See the [FAQ guide](doc/FAQ_GUIDE_en.md) for first-launch setup, trigger-word issues, tool calls that executed but did not update the page, and tool-call history logs.
 
 ## Contributing
 
