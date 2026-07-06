@@ -116,7 +116,7 @@ const BUILTIN_AI_SITES: ResolvedAiSiteConfig[] = [
         address: 'https://chat.qwen.ai/',
         showQuickLaunch: true,
         selectors: {
-            messageBlocks: '.chat-response-message-right',
+            messageBlocks: '.qwen-chat-message-dual-message .smulti-o-response-message-wrapper > .response-message-box:first-child .chat-response-message-right, .qwen-chat-message-assistant:not(.qwen-chat-message-dual-message) .chat-response-message-right',
             codeBlocks: '.qwen-markdown-code-body',
             inputArea: 'textarea.message-input-textarea',
             sendButton: '.chat-prompt-send-button .send-button',

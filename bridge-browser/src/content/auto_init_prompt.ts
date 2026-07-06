@@ -2,6 +2,7 @@ import { BRANDING } from "@webcode/shared";
 import type { SiteSelectors } from "../modules/config";
 import { i18n } from "../modules/i18n";
 import { Logger } from "../modules/logger";
+import { getMessageBlockElements } from "../modules/page_selectors";
 import { pasteTextAsAttachment } from "../modules/result_delivery";
 import * as UI from "../modules/ui";
 import {
@@ -399,7 +400,7 @@ function isVisibleElement(element: HTMLElement): boolean {
 
 function hasVisibleMessageBlock(selectors: SiteSelectors): boolean {
   try {
-    return Array.from(document.querySelectorAll<HTMLElement>(selectors.messageBlocks))
+    return getMessageBlockElements<HTMLElement>(selectors)
       .some((element) => isVisibleElement(element));
   } catch {
     return true;

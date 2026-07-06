@@ -74,10 +74,16 @@ export function isSendButtonActuallyStopButton(
   return Boolean(domSelectors.stopButton && getStopButton(domSelectors) === button);
 }
 
+export function getMessageBlockElements<T extends Element = Element>(
+  domSelectors: Pick<SiteSelectors, "messageBlocks">
+): T[] {
+  return Array.from(document.querySelectorAll<T>(domSelectors.messageBlocks));
+}
+
 export function getLatestResponseCodeBlocks(
   domSelectors: SiteSelectors
 ): LatestResponseCodeBlocks | null {
-  const messages = document.querySelectorAll(domSelectors.messageBlocks);
+  const messages = getMessageBlockElements(domSelectors);
   if (messages.length === 0) { return null; }
 
   const messageIndex = messages.length - 1;
@@ -131,7 +137,7 @@ function collectScrollCandidates(domSelectors: SiteSelectors): Set<HTMLElement> 
     candidates.add(scrollingElement);
   }
 
-  const messages = Array.from(document.querySelectorAll<HTMLElement>(domSelectors.messageBlocks));
+  const messages = getMessageBlockElements<HTMLElement>(domSelectors);
   addAncestorScrollCandidates(messages[0], candidates);
   addAncestorScrollCandidates(messages[messages.length - 1], candidates);
   addAncestorScrollCandidates(getInputAreaElement(domSelectors), candidates);

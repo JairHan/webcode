@@ -18,6 +18,17 @@ suite('platform registry', () => {
         assert.strictEqual(typeof chatgpt.selectors.inputArea, 'string');
     });
 
+    test('uses Qwen selectors that prefer the first comparison response', () => {
+        const sites = getConfiguredAiSites(undefined);
+        const qwen = findAiSiteById(sites, 'qwen');
+
+        assert.ok(qwen);
+        assert.strictEqual(
+            qwen.selectors.messageBlocks,
+            '.qwen-chat-message-dual-message .smulti-o-response-message-wrapper > .response-message-box:first-child .chat-response-message-right, .qwen-chat-message-assistant:not(.qwen-chat-message-dual-message) .chat-response-message-right'
+        );
+    });
+
     test('merges user overrides by id', () => {
         const sites = getConfiguredAiSites([
             {

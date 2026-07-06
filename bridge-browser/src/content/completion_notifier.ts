@@ -1,7 +1,7 @@
 import { BRANDING } from "@webcode/shared";
 import { type SiteSelectors } from "../modules/config";
 import { Logger } from "../modules/logger";
-import { isStopButtonVisible } from "../modules/page_selectors";
+import { getMessageBlockElements, isStopButtonVisible } from "../modules/page_selectors";
 import { looksLikeToolCall } from "../modules/toolCallProtocol";
 import { showUserAttentionNotification } from "../modules/user_attention";
 
@@ -124,7 +124,7 @@ function isCompletionIdle(domSelectors: SiteSelectors): boolean {
 }
 
 function getLatestResponseSnapshot(domSelectors: SiteSelectors): LatestResponseSnapshot | null {
-  const messages = document.querySelectorAll(domSelectors.messageBlocks);
+  const messages = getMessageBlockElements(domSelectors);
   if (messages.length === 0) {
     return null;
   }
