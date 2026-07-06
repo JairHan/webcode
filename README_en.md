@@ -28,6 +28,10 @@
 
 ---
 
+<p align="center">
+  <img src="doc/assets/webcode-usage-screenshot.png" width="960" alt="webcode usage screenshot">
+</p>
+
 ## Quick Start
 
 ### 1. Install the VS Code Extension

@@ -28,6 +28,10 @@
 
 ---
 
+<p align="center">
+  <img src="doc/assets/webcode-usage-screenshot.png" width="960" alt="webcode 使用截图">
+</p>
+
 ## 快速开始
 
 ### 1. 安装 VS Code 扩展
