@@ -27,6 +27,12 @@ jobs:
         with:
           ref: ${{ env.RELEASE_TAG }}
 
+      - name: Cache VS Code test runtime
+        uses: actions/cache@v4
+        with:
+          path: gateway-vscode/.vscode-test/vscode-*
+          key: vscode-test-v1-${{ runner.os }}-${{ runner.arch }}-1.106.1
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -40,6 +46,14 @@ jobs:
 
       - name: Build release artifacts
         run: ./build_release.sh
+
+      - name: Run unit tests
+        run: pnpm test
+
+      - name: Run VS Code Extension Host tests
+        env:
+          VSCODE_TEST_VERSION: "1.106.1"
+        run: xvfb-run -a pnpm test:extension
 
       - name: Extract release notes
         run: |

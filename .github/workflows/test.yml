@@ -1,0 +1,100 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.25.0 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build shared package
+        run: pnpm --filter @webcode/shared run build
+
+      - name: Run unit tests
+        run: pnpm test
+
+  extension-host:
+    name: Extension Host (${{ matrix.vscode }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        vscode:
+          - "1.106.1"
+          - stable
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve VS Code version
+        id: vscode-version
+        shell: bash
+        env:
+          REQUESTED_VERSION: ${{ matrix.vscode }}
+        run: |
+          if [ "$REQUESTED_VERSION" = "stable" ]; then
+            RESOLVED_VERSION="$(
+              curl --fail --silent --show-error \
+                'https://update.code.visualstudio.com/api/releases/stable?released=true' |
+              jq -er '.[0]'
+            )"
+          else
+            RESOLVED_VERSION="$REQUESTED_VERSION"
+          fi
+
+          echo "version=$RESOLVED_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Cache VS Code test runtime
+        uses: actions/cache@v4
+        with:
+          path: gateway-vscode/.vscode-test/vscode-*
+          key: vscode-test-v1-${{ runner.os }}-${{ runner.arch }}-${{ steps.vscode-version.outputs.version }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.25.0 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build shared package
+        run: pnpm --filter @webcode/shared run build
+
+      - name: Run Extension Host tests
+        env:
+          VSCODE_TEST_VERSION: ${{ steps.vscode-version.outputs.version }}
+        run: xvfb-run -a pnpm test:extension

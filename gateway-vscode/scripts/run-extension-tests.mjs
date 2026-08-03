@@ -6,8 +6,8 @@ import path from 'node:path';
 const extensionTestDir = fileURLToPath(new URL('../out/extension-test', import.meta.url));
 
 if (!hasTestFile(extensionTestDir)) {
-  console.log('No VS Code Extension Host tests found in out/extension-test/**/*.test.js.');
-  process.exit(0);
+  console.error('No VS Code Extension Host tests found in out/extension-test/**/*.test.js.');
+  process.exit(1);
 }
 
 const command = process.platform === 'win32' ? 'vscode-test.cmd' : 'vscode-test';

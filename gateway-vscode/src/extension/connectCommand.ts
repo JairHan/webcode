@@ -32,10 +32,18 @@ const OPEN_PROFILE_FOLDER_BUTTON: vscode.QuickInputButton = {
     tooltip: t('isolated_profiles_open_folder_button')
 };
 
+export const GATEWAY_CONNECT_COMMAND = 'webcode-gateway.connect';
+export const GATEWAY_RESTART_COMMAND = 'gateway-vscode.restart';
+
 export function registerGatewayConnectCommand(options: RegisterGatewayConnectCommandOptions): void {
-    options.context.subscriptions.push(vscode.commands.registerCommand('webcode-gateway.connect', async () => {
-        await handleGatewayConnectCommand(options.context, options.outputChannel, options.serviceController);
-    }));
+    options.context.subscriptions.push(
+        vscode.commands.registerCommand(GATEWAY_CONNECT_COMMAND, async () => {
+            await handleGatewayConnectCommand(options.context, options.outputChannel, options.serviceController);
+        }),
+        vscode.commands.registerCommand(GATEWAY_RESTART_COMMAND, async () => {
+            await options.serviceController.restart();
+        })
+    );
 }
 
 async function handleGatewayConnectCommand(
