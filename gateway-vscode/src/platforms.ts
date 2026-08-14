@@ -116,13 +116,10 @@ const BUILTIN_AI_SITES: ResolvedAiSiteConfig[] = [
         address: 'https://chat.qwen.ai/',
         showQuickLaunch: true,
         selectors: {
-            messageBlocks: '.qwen-chat-message-assistant',
-            codeBlocks: [
-                '.qwen-chat-message-assistant .qwen-markdown-code-body',
-                '.qwen-chat-message-assistant pre code'
-            ].join(', '),
+            messageBlocks: '.qwen-chat-message-dual-message .smulti-o-response-message-wrapper > .response-message-box:first-child .chat-response-message-right, .qwen-chat-message-assistant:not(.qwen-chat-message-dual-message) .chat-response-message-right',
+            codeBlocks: '.qwen-markdown-code-body',
             inputArea: 'textarea.message-input-textarea',
-            sendButton: '.chat-prompt-send-button .send-button, .message-input-right-button-send .omni-button-content-btn',
+            sendButton: '.chat-prompt-send-button .send-button',
             stopButton: '.chat-prompt-send-button .stop-button',
         }
     }

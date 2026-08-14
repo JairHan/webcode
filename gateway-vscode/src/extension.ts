@@ -17,6 +17,16 @@ interface RuntimeHolder {
     serviceController?: GatewayServiceController;
 }
 
+export interface GatewayExtensionState {
+    currentPort: number | null;
+    isStarting: boolean;
+    isRunning: boolean;
+}
+
+export interface GatewayExtensionApi {
+    getGatewayState(): GatewayExtensionState;
+}
+
 /**
  * VS Code 扩展激活入口。
  *
@@ -29,7 +39,7 @@ interface RuntimeHolder {
  * 直接进入对应模块，而不是继续把逻辑堆到 extension.ts 里。
  */
 // eslint-disable-next-line @typescript-eslint/require-await
-export async function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext): Promise<GatewayExtensionApi> {
     // 创建扩展专用输出通道。GatewayManager、服务控制器和命令菜单都会复用它，
     // 这样启动日志、重启日志、错误信息都集中显示在同一个 VS Code Output 面板里。
     const outputChannel = vscode.window.createOutputChannel(t('output_channel_name'));
@@ -111,4 +121,11 @@ export async function activate(context: vscode.ExtensionContext) {
     // 用户点击状态栏选择启动后，才由 serviceController.start() 真正启动服务。
     updateGatewayStatusBar(statusBarItem, false, undefined, false);
     // Do not auto-start
+
+    return {
+        getGatewayState() {
+            const { currentPort, isStarting, isRunning } = serviceController.getState();
+            return { currentPort, isStarting, isRunning };
+        }
+    };
 }

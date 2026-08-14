@@ -93,7 +93,7 @@ User profile keepalive mode uses your normal Chrome or Edge profile and adds kee
 Notes:
 
 - Install the webcode bridge browser extension manually first.
-- Fully quit the target browser, including background processes, before launching this mode. If the browser is already running, the new keepalive flags usually cannot take effect.
+- If the target browser is already running, webcode still opens the page, but the new keepalive flags usually cannot take effect. Fully quit the browser, including background processes, and reopen it when you need the keepalive flags to take effect.
 - This mode is useful when you must use your normal browser sign-in state but also want to reduce background freezing.
 - It launches your normal browser profile, so it may restore existing tabs or be affected by your existing browser settings.
 

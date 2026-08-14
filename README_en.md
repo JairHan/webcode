@@ -1,8 +1,36 @@
-# webcode
+<p align="center">
+  <img src="doc/assets/webcode-logo.png" width="220" alt="webcode logo">
+</p>
 
-Language: English | [中文](README.md)
+<h1 align="center">webcode</h1>
 
-webcode connects ChatGPT, Gemini, DeepSeek, and other web AI products to local VS Code so they can read, write, and edit local files, run commands, and use MCP and Skills.
+<p align="center">
+  <strong>Local coding capabilities for web AI.</strong>
+</p>
+
+<p align="center">
+  Through a VS Code extension and browser extension, webcode breaks the boundary between web AI and local projects, connecting ChatGPT, Gemini, DeepSeek, and other web AI products to local VS Code with file access, command execution, and MCP and Skills support.
+</p>
+
+<p align="center">
+  English | <a href="README.md">中文</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/three-water666/webcode/actions/workflows/release.yml">
+    <img alt="release workflow" src="https://img.shields.io/github/actions/workflow/status/three-water666/webcode/release.yml?label=release&color=22c55e">
+  </a>
+  <img alt="browser bridge version" src="https://img.shields.io/github/package-json/v/three-water666/webcode?filename=bridge-browser%2Fpackage.json&label=bridge&color=f97316">
+  <a href="LICENSE">
+    <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-16a34a">
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <img src="doc/assets/webcode-usage-screenshot.png" width="960" alt="webcode usage screenshot">
+</p>
 
 ## Quick Start
 
@@ -19,26 +47,22 @@ webcode connects ChatGPT, Gemini, DeepSeek, and other web AI products to local V
 3. In the menu that opens, click `Start webcode`.
 4. Wait for the status bar item to change to `webcode: <port>`.
 
-When the status bar shows a port number, the local gateway is running. The AI launch menu opens automatically after startup, so you do not need to click the status bar a second time.
+When the status bar shows a port number, the local gateway is running.
 
 ### 3. Open a Supported AI Product
 
-1. Choose the target site in the launch menu, such as `Open Gemini`, `Open ChatGPT`, or another supported entry.
+1. Choose the target site in the launch menu, such as `Open ChatGPT` or another supported entry.
 2. webcode opens Microsoft Edge in [`Edge Isolated Keepalive`](doc/BROWSER_MODE_GUIDE_en.md) mode by default.
 3. The isolated Edge profile auto-loads the bundled webcode bridge extension.
 4. The bridge page completes the handshake with the local gateway automatically.
 5. After the handshake succeeds, the browser redirects to the target AI site.
 
-On first use, sign in to the target AI site once in the isolated Edge profile. If sign-in redirects to a third-party provider such as Google or Microsoft, the bridge temporarily pauses page capabilities and keeps the session; it resumes automatically after the browser returns to the target AI site. When the bridge extension shows `ON`, the connection is ready to use.
-
-The isolated profile is stored in the OS app data directory, so uninstalling the VS Code extension does not automatically delete sign-in data or cache. See the [browser mode guide](doc/BROWSER_MODE_GUIDE_en.md) for cleanup details.
-
-If the gateway is already running, click `webcode: <port>` in the status bar to open the same launch menu again.
+On first use, sign in to the target AI site once in the isolated Edge profile. When the bridge extension shows `ON`, the connection is ready to use.
 
 ### 4. Use It in Chat
 
 1. Open a new chat on the target AI site.
-2. Enter your actual task first, then add `/webcode` or `@webcode` at the end of the same message.
+2. Enter your actual task first, then add `/webcode` or `@webcode` at the end of the same message, or press Enter directly.
 3. When webcode asks whether to add the initialization context, choose `Add` or press Enter.
 4. webcode replaces the trigger word with the full initialization context. Review the message, then send it yourself.
 
@@ -89,7 +113,7 @@ See the [build guide](doc/BUILD_GUIDE_en.md) for repository checkout, dependency
 
 ## FAQ
 
-See the [FAQ guide](doc/FAQ_GUIDE_en.md) for trigger-word issues, tool calls that executed but did not update the page, and tool-call history logs.
+See the [FAQ guide](doc/FAQ_GUIDE_en.md) for first-launch setup, trigger-word issues, tool calls that executed but did not update the page, and tool-call history logs.
 
 ## Contributing
 
